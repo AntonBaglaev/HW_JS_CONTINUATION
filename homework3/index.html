@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Homework3</title>
+	</head>
+	<body>
+		<p class="super__element">Привет</p>
+		<img src="https://placeimg.com/50/50/animals" alt="" />
+		<img src="https://placeimg.com/50/50/arch" alt="" />
+		<img src="https://placeimg.com/50/50/nature" alt="" />
+		<img src="https://placeimg.com/50/50/people" alt="" />
+		<img src="https://placeimg.com/50/50/tech" alt="" />
+		<img src="https://placeimg.com/50/50/tech/grayscale" alt="" />
+		<img src="https://placeimg.com/50/50/tech/sepia" alt="" />
+		<br />
+		<button>Кнопка</button>
+		<button class="super__element">Кнопка с классом btn</button>
+		<button>Кнопка</button>
+		<br />
+		<textarea></textarea>
+		<br />
+		<ul>
+			<li>
+				<button>Кнопка 1</button>
+			</li>
+			<li>
+				<button>Кнопка 2</button>
+			</li>
+			<li>
+				<button>Кнопка 3</button>
+			</li>
+			<li>
+				<button>Кнопка 4</button>
+			</li>
+		</ul>
+		<script>
+			// 1
+			document.addEventListener("DOMContentLoaded", () => {
+				console.log("все теги прогрузились");
+			});
+
+			// 2
+			window.addEventListener("load", () => {
+				console.log("страница загрузилась");
+			});
+
+			// 3
+			document.addEventListener("click", (el) => {
+				if (el.target.className === "super__element") {
+					console.log(`Класс "super__element" присутсвует в элементе ${el.target.localName}`);
+				} else {
+					console.log(`Класс "super__element" отсутсвует в элементе ${el.target.localName}`);
+				}
+			});
+
+			// 4
+			document.addEventListener("mouseover", (el) => {
+				if (el.target.localName === "textarea") {
+					console.log("Вы навели на textarea.");
+				}
+			});
+
+			// 5
+			const ulElem = document.querySelector("ul");
+			ulElem.addEventListener("click", (el) => {
+				console.log(el.target.innerText);
+			});
+			// 6
+			// Ответ: Это происходит потому что, в 3 задании мы получаем событие по всей странице. А то что текст из 5 задания прописывается раньше чем из 3, обусловленно тем что, при событии нажатии мыши происходит следующий порядок mousedown(нажатее мыши) -> mouseup(отпускание мыши) -> click(событие).
+
+			// 7
+			const liElem = document.querySelectorAll("li");
+			for (let i = 1; i < liElem.length; i += 2) {
+				liElem[i].style.backgroundColor = "green";
+			}
+		</script>
+	</body>
+</html>
