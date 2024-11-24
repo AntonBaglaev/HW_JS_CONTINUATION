@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<input id="from" type="text" />
+		В инпуте написано: <span></span>
+		<br />
+		<button class="message-btn">Показать блок</button>
+		<div class="message">Привет :)</div>
+		<br />
+		<form>
+			<label>
+				Первый инпут:
+				<input class="form-control" type="text" />
+			</label>
+			<br />
+			<br />
+			<label>
+				Второй инпут:
+				<select class="form-control">
+					<option value=""></option>
+					<option value="1">Один</option>
+					<option value="2">Два</option>
+				</select>
+			</label>
+			<br />
+			<br />
+			<button>Отправить</button>
+		</form>
+		<script>
+			// 1
+			const formId = document.querySelector("#from");
+			const span = document.querySelector("span");
+			const chageHead = () => {
+				span.innerText = formId.value;
+			};
+			formId.addEventListener("input", chageHead);
+
+			// 2
+			const messageBtn = document.querySelector(".message-btn");
+			const message = document.querySelector(".message");
+			messageBtn.addEventListener("click", function () {
+				message.classList.add("animate_animated");
+				message.classList.add("animate_fadeInLeftBig");
+				message.style.visibility = "visible";
+			});
+
+			// 3
+			const form = document.querySelector("form");
+			const formControl = document.querySelectorAll(".form-control");
+			const btn = document.querySelector("form button");
+
+			form.addEventListener("submit", (e) => {
+				e.preventDefault();
+				formControl.forEach((element) => {
+					if (element.tagName === "INPUT") {
+						isValid(element);
+					} else if (element.tagName === "SELECT") {
+						isValid(element);
+					}
+				});
+			});
+			function isValid(elem) {
+				if (elem.value === "") {
+					elem.style.backgroundColor = "red";
+					elem.classList.add("error");
+					elem.setCustomValidity("Пустое значение");
+					elem.reportValidity();
+				} else {
+					btn.textContent = "ОК";
+					setTimeout(() => {
+						btn.textContent = "Отправить";
+					}, 1000);
+				}
+			}
+			formControl.forEach((el) => {
+				el.addEventListener("input", () => {
+					el.setCustomValidity("");
+					el.removeAttribute("style");
+					el.classList.remove("error");
+				});
+			});
+		</script>
+	</body>
+</html>
