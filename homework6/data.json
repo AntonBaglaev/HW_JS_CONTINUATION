@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "price": 300,
+        "img": "img/item1.jpg",
+        "title": "MANGO PEOPLE T-SHIRT",
+        "text": "Text block"
+    },
+
+    {
+        "id": 2,
+        "price": 45,
+        "img": "img/item2.png",
+        "title": "MANGO PEOPLE T-SHIRT",
+        "text": "Text block"
+    },
+
+    {
+        "id": 3,
+        "price": 80,
+        "img": "img/item3.png",
+        "title": "MANGO PEOPLE T-SHIRT",
+        "text": "Text block"
+    },
+
+    {
+        "id": 4,
+        "price": 120,
+        "img": "img/item4.png",
+        "title": "MANGO PEOPLE T-SHIRT",
+        "text": "Text block"
+    },
+
+    {
+        "id": 5,
+        "price": 89,
+        "img": "img/item5.png",
+        "title": "MANGO PEOPLE T-SHIRT",
+        "text": "Text block"
+    },
+
+    {
+        "id": 6,
+        "price": 456,
+        "img": "img/item6.png",
+        "title": "MANGO PEOPLE T-SHIRT",
+        "text": "Text block"
+    }
+]
