@@ -1,0 +1,153 @@
+.top-product {
+   background-color: #f8f3f4;
+   padding: 60px 0;
+   @include flexBetween;
+   &__heading {
+      color: $mainColor;
+      font-size: 24px;
+      font-weight: $font-400;
+      line-height: 29px;
+      font-style: normal;
+   }
+   &__bredcrumbs-link {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 17px;
+      color: #636363;
+      &:not(:last-child)::after {
+         content: "\/";
+         padding-left: 10px;
+         padding-right: 10px;
+      }
+      &:last-child {
+         font-weight: bold;
+         color: $mainColor;
+      }
+   }
+}
+
+.slider {
+   background: #f7f7f7;
+   padding-top: 11px;
+   padding-bottom: 42px;
+   text-align: center;
+   position: relative;
+   &__left-arrow,
+   &__right-arrow {
+      position: absolute;
+      background: rgba(42, 42, 42, 0.15);
+      top: 365px;
+      padding: 8px;
+      &:hover path {
+         fill: $mainColor;
+         transition: $transition;
+      }
+   }
+   &__left-arrow {
+      left: 0;
+   }
+
+   &__right-arrow {
+      right: 0;
+   }
+}
+
+.product-info {
+   margin-bottom: 77px;
+   &__wrap {
+      position: relative;
+      text-align: center;
+      min-height: 600px;
+   }
+   &__wrap-blok {
+      background: $textColorHover;
+      position: absolute;
+      top: -65px;
+      border: 1px solid #eaeaea;
+      width: fit-content;
+      padding: 65px 293px;
+   }
+   &__title {
+      color: $mainColor;
+      font-size: 14px;
+      font-weight: $font-300;
+   }
+   &__line-red {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      width: 63px;
+      margin-left: auto;
+      margin-right: auto;
+      border-top: none;
+      border: 2px solid $mainColor;
+   }
+   &__subtitle {
+      color: #4d4d4d;
+      font-size: 18px;
+      font-weight: $font-300;
+      margin-bottom: 48px;
+   }
+   &__text {
+      color: #5e5e5e;
+      font-size: 14px;
+      font-weight: $font-300;
+   }
+   &__prise {
+      margin-top: 32px;
+      font-size: 24px;
+      color: $mainColor;
+      font-weight: $font-300;
+   }
+   &__line {
+      margin: 65px auto;
+      border: 1px solid #eaeaea;
+   }
+   &__setting-menu {
+      font-size: 14px;
+      font-weight: $font-400;
+      color: #6f6e6e;
+      @include centerFlex;
+      gap: 23px;
+      margin-bottom: 49px;
+   }
+   &__arrow-bottom {
+      display: flex;
+      gap: 9px;
+      align-items: flex-end;
+      & path {
+         fill: #6f6e6e;
+         transition: $transition;
+      }
+      &:hover path {
+         fill: $mainColor;
+      }
+   }
+   &__button {
+      padding: 15px 39px;
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 16px;
+      line-height: 19px;
+      color: $mainColor;
+      border: 1px solid $mainColor;
+      background: none;
+      transition: $transition;
+   }
+   &__wrap-bottom {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+   }
+   &__img-shop path {
+      fill: $mainColor;
+      transition: $transition;
+   }
+   &__button:hover {
+      color: $textColorHover;
+      background: $mainColor;
+      & path {
+         fill: $textColorHover;
+      }
+   }
+}

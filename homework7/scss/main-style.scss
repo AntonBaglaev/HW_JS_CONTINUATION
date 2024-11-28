@@ -1,0 +1,496 @@
+@import "vars";
+@import "mixins";
+@import "visual";
+@import "product";
+@import "catalog";
+@import "cart";
+@import "registration";
+
+// Общие стили для сайта
+* {
+   margin: 0;
+   padding: 0;
+}
+body {
+   font-family: "Lato", sans-serif;
+}
+a {
+   text-decoration: none;
+}
+.center {
+   padding-left: calc(50% - $widthSite / 2);
+   padding-right: calc(50% - $widthSite / 2);
+}
+.box-content {
+   overflow: hidden;
+}
+
+//Стили для хеадера
+.header {
+   background-color: $colorBlock;
+   @include flexBetween();
+   padding-top: 20px;
+   padding-bottom: 20px;
+   position: relative;
+   &__left {
+      display: flex;
+      gap: 41px;
+      align-items: center;
+   }
+   &__right {
+      display: flex;
+      gap: 33px;
+      align-items: center;
+   }
+   &__search:hover path {
+      fill: $mainColor;
+      transition: $transition;
+   }
+   &__burger:hover path {
+      fill: $mainColor;
+      transition: $transition;
+   }
+   &__user:hover path {
+      fill: $mainColor;
+      transition: $transition;
+   }
+   &__shop:hover path {
+      fill: $mainColor;
+      transition: $transition;
+   }
+}
+
+#burger {
+   position: absolute;
+   left: -999999px;
+   visibility: hidden;
+   &:checked ~ .nav {
+      right: -$widthBurgerMenu;
+      visibility: hidden;
+   }
+}
+
+//Стили меню
+.nav {
+   z-index: 5;
+   background: #fff;
+   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+   width: $widthBurgerMenu;
+   padding: 32px;
+   box-sizing: border-box;
+   position: absolute;
+   top: 81px;
+   right: 0;
+   transition: $transition;
+   display: flex;
+   flex-direction: column;
+   gap: 11px;
+   &__end {
+      margin-left: 169px;
+      margin-top: -10px;
+      &:hover path {
+         fill: $mainColor;
+         transition: $transition;
+      }
+   }
+   &__title {
+      font-size: 14px;
+      font-weight: $font-700;
+      color: $textColor;
+      padding-bottom: 4px;
+   }
+   &__subtitle {
+      font-size: 14px;
+      font-weight: $font-400;
+      color: $mainColor;
+      margin-top: 9px;
+   }
+   &__element {
+      padding-left: 22px;
+      font-size: 14px;
+      font-weight: $font-400;
+      color: #6f6e6e;
+      &:hover {
+         color: $mainColor;
+      }
+   }
+}
+
+//Стили для верхнего блока сайта
+.top {
+   background-color: #f1e4e6;
+   @include centerFlex;
+   gap: 64px;
+   &__photo {
+      margin-left: -220px;
+   }
+   &__box-title {
+      border-left: 14px solid $mainColor;
+      padding-left: 16px;
+   }
+   &__selected-text {
+      color: $mainColor;
+   }
+   &__title {
+      font-style: normal;
+      font-weight: $font-900;
+      font-size: 48px;
+      line-height: 58px;
+      color: $textColor;
+   }
+   &__text-title {
+      font-style: normal;
+      font-weight: $font-700;
+      font-size: 32px;
+      line-height: 38px;
+      color: $textColor;
+   }
+}
+
+//Стили длоя оффера
+.offer {
+   margin-top: 64px;
+   margin-bottom: 97px;
+   &__box {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(232px, 360px));
+      gap: $gapGrid;
+   }
+   &__item {
+      position: relative;
+      transition: all 0.8s ease;
+      &:hover {
+         transform: translateY(-50px);
+      }
+   }
+   &__item-big {
+      grid-column: span 3;
+      &:hover {
+         transform: translateY(0px);
+      }
+   }
+   &__img {
+      width: 100%;
+      filter: brightness(40%);
+   }
+   &__text {
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      z-index: 1;
+   }
+   &__text-title {
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      color: $textColorHover;
+   }
+   &__title {
+      font-style: normal;
+      font-weight: $font-700;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      color: $mainColor;
+   }
+}
+
+//Стили для изображений продуктов
+.products {
+   text-align: center;
+   margin-bottom: 95px;
+   &__title {
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 30px;
+      line-height: 36px;
+      color: $textColor;
+      margin-bottom: 6px;
+   }
+   &__text {
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #9f9f9f;
+      margin-bottom: 48px;
+   }
+   &__button {
+      margin-top: 15px;
+      padding: 15px 39px;
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 16px;
+      line-height: 19px;
+      color: $mainColor;
+      border: 1px solid $mainColor;
+      background: none;
+      transition: $transition;
+      &:hover {
+         color: $textColorHover;
+         background: $mainColor;
+      }
+   }
+}
+.add-cart {
+   display: none;
+}
+.product {
+   position: relative;
+   width: $thirdSite;
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   &__box {
+      @include centerFlex;
+      gap: $gapGrid;
+      margin-bottom: 33px;
+   }
+   &__img {
+      width: 100%;
+   }
+   &__content {
+      background-color: #f8f8f8;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+   }
+   &__name {
+      color: $textColor;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+   }
+   &__text {
+      color: #5d5d5d;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 17px;
+   }
+   &__price {
+      color: $mainColor;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 19px;
+   }
+   &__image-hover {
+      font-size: 0;
+   }
+   &__image-hover:hover {
+      & .product__img {
+         filter: brightness(40%);
+         transition: $transition;
+      }
+      & .add-cart {
+         @include centerFlex;
+         gap: 11px;
+         position: absolute;
+         top: 30%;
+         left: 30%;
+         color: $textColorHover;
+         border: 1px solid $textColorHover;
+         padding: 10px 15px;
+         z-index: 1;
+         font-style: normal;
+         font-weight: $font-400;
+         font-size: 14px;
+         line-height: 17px;
+         cursor: pointer;
+      }
+   }
+}
+
+//Стили для информационного блока
+.feature {
+   background-color: $colorBlock;
+   color: $textColorHover;
+   padding-top: 103px;
+   padding-bottom: 104px;
+   &__box {
+      @include centerFlex;
+      box-sizing: border-box;
+      gap: $gapGrid;
+   }
+   &__item {
+      width: $thirdSite;
+      text-align: center;
+      animation: wobble-hor-top 3s both;
+      animation-iteration-count: infinite;
+      & path {
+         fill: $mainColor;
+      }
+   }
+   &__item-text {
+      margin-top: 14px;
+      font-style: normal;
+      font-weight: $font-300;
+      font-size: 13.972px;
+      line-height: 17px;
+   }
+   &__item-title {
+      margin-top: 22px;
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 19.96px;
+      line-height: 24px;
+   }
+}
+
+.cart-products {
+   text-align: center;
+   padding-top: 96px;
+   padding-bottom: 113px;
+}
+
+.add-products__title {
+   text-align: center;
+   margin-top: 22px;
+   font-style: normal;
+   font-weight: $font-400;
+   font-size: 19.96px;
+   line-height: 24px;
+   margin-bottom: 64px;
+}
+
+.add-products__products-list {
+   text-align: left;
+}
+
+.product__box-add {
+   justify-content: center;
+}
+
+//Стили для обратной связи
+.frame {
+   background-image: url(../image/photo-subscribe.jpg);
+   background-position: bottom;
+   background-size: cover;
+   position: relative;
+   padding-top: 97px;
+   padding-bottom: 126px;
+   @include flexBetween;
+   &__fon-filter {
+      background: rgba(244, 244, 244, 0.7);
+      position: absolute;
+      left: 0%;
+      right: 0%;
+      top: 0%;
+      bottom: 0%;
+      z-index: 1;
+   }
+   &__sey-item {
+      width: 360px;
+      text-align: center;
+      z-index: 2;
+   }
+   &__sey-text {
+      margin-top: 30px;
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      color: $textColor;
+   }
+   &__form-blok {
+      z-index: 2;
+   }
+   &__sey-italic {
+      font-style: italic;
+   }
+   &__form-title {
+      font-style: normal;
+      font-weight: $font-700;
+      font-size: 24px;
+      line-height: 167.2%;
+      text-align: center;
+      color: $textColor;
+   }
+   &__form-text {
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 18px;
+      line-height: 167.2%;
+      text-align: center;
+      color: $textColor;
+   }
+   &__input-email {
+      margin-top: 32px;
+      @include centerFlex;
+   }
+   &__email {
+      border-top-left-radius: 22px;
+      border-bottom-left-radius: 22px;
+      height: 49px;
+      width: 256px;
+      background: #e1e1e1;
+      border: none;
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      align-items: center;
+      color: $textColor;
+      padding-left: 22px;
+      box-sizing: border-box;
+      opacity: 0.67;
+      outline: none;
+   }
+   &__button-form {
+      border: none;
+      width: 100px;
+      height: 49px;
+      border-top-right-radius: 22px;
+      border-bottom-right-radius: 22px;
+      background: $mainColor;
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 14px;
+      line-height: 17px;
+      color: $textColorHover;
+      transition: $transition;
+      @include centerFlex;
+      &:hover {
+         background: $textColorHover;
+         color: $mainColor;
+      }
+   }
+}
+
+// Стили для подвала сайта
+.footer {
+   padding-top: 30px;
+   padding-bottom: 30px;
+   background: $colorBlock;
+   @include flexBetween;
+   &__copy {
+      font-style: normal;
+      font-weight: $font-400;
+      font-size: 16px;
+      line-height: 19px;
+      color: $textColorHover;
+   }
+   &__icon {
+      display: flex;
+      gap: 8px;
+   }
+   &__img-svg:hover {
+      & .fon-svg {
+         fill: $mainColor;
+         transition: $transition;
+      }
+      & path {
+         fill: $textColorHover;
+         transition: $transition;
+      }
+   }
+}
+
+@import "media";

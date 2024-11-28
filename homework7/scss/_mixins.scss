@@ -1,0 +1,18 @@
+@mixin flexBetween() {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+@mixin centerFlex() {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+@mixin gridItem($count, $width) {
+   display: grid;
+   grid-template-columns: repeat($count, $width);
+}

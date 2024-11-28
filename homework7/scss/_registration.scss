@@ -1,0 +1,108 @@
+.form {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   &__name {
+      font-size: 16px;
+      color: $colorBlock;
+      font-weight: $font-300;
+      line-height: 19px;
+   }
+   &__radio {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 10px;
+      &-indent {
+         margin-right: 10px;
+         font-size: 11px;
+         font-weight: $font-300;
+      }
+      &-size {
+         width: 17px;
+         height: 17px;
+      }
+   }
+   &__input {
+      width: 360px;
+      height: 45px;
+      box-sizing: border-box;
+      outline: none;
+      border: 1px solid #a4a4a4;
+      padding-left: 17px;
+      &::-webkit-input-placeholder {
+         color: #b1b1b1;
+      }
+   }
+   &__details {
+      font-size: 16px;
+      font-weight: $font-300;
+      color: $colorBlock;
+   }
+   &__text {
+      font-size: 13px;
+      font-weight: $font-300;
+      color: #b1b1b1;
+      margin-bottom: 19px;
+   }
+   &__button {
+      width: fit-content;
+      padding: 17px 29px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      color: $textColorHover;
+      background: $mainColor;
+      outline: none;
+      border: none;
+      &-name {
+         font-size: 14px;
+         font-weight: $font-400;
+      }
+      &:hover {
+         color: $mainColor;
+         background: $textColorHover;
+         box-shadow: 0px 0px 2px $mainColor;
+         transition: $transition;
+      }
+      &:hover path {
+         fill: $mainColor;
+         transition: $transition;
+      }
+   }
+}
+
+.reg-form {
+   padding-top: 64px;
+   padding-bottom: 96px;
+   display: flex;
+   gap: 128px;
+   &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+   }
+   &__ul {
+      list-style-image: url("../image/Vector.svg");
+      text-indent: 23px;
+      padding-left: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+   }
+   &__li {
+      font-size: 24px;
+      font-weight: $font-300;
+      color: $textColor;
+   }
+   &__head {
+      font-size: 24px;
+      font-weight: $font-300;
+      color: $textColor;
+   }
+   &__text {
+      font-size: 24px;
+      font-weight: $font-300;
+      color: $textColor;
+   }
+}
